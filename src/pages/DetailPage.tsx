@@ -2,6 +2,7 @@ import Footer from '../components/Footer';
 import Header from '../components/Header';
 import Share from '../components/Share';
 import Tag from '../components/Tag';
+import Comment from '../components/Comment';
 
 const DetailPage = () => {
   return (
@@ -155,6 +156,13 @@ const DetailPage = () => {
         </article>
 
         <Share />
+
+        <article className="py-10 border-b border-grey-lighter space-y-6 ">
+          <h2 className="text-xl font-bold text-green">Comments</h2>
+          {[1, 2, 3].map((comment) => (
+            <Comment key={comment} />
+          ))}
+        </article>
       </section>
       <Footer />
     </main>
