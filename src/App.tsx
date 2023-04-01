@@ -1,8 +1,11 @@
-import './App.css';
-import axios from 'axios';
+import Router from './router/router';
 
 const App = () => {
-  return <h1 className="text-3xl font-bold underline">Hello world!</h1>;
+  return (
+    <>
+      <Router />
+    </>
+  );
 };
 
 export default App;
