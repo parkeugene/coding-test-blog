@@ -1,8 +1,12 @@
-import './App.css';
-import axios from 'axios';
+import {RecoilRoot} from 'recoil';
+import Router from './router/router';
 
 const App = () => {
-  return <h1 className="text-3xl font-bold underline">Hello world!</h1>;
+  return (
+    <RecoilRoot>
+      <Router />
+    </RecoilRoot>
+  );
 };
 
 export default App;
