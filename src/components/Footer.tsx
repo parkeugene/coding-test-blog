@@ -4,11 +4,9 @@ const Footer = () => {
       <div className="flex flex-col items-center justify-between border-grey-lighter py-10 sm:flex-row sm:py-12">
         <div className="mr-auto flex flex-col items-center sm:flex-row">
           <a href="/" className="mr-auto sm:mr-6">
-            <img src="src/assets/img/logo.svg" alt="logo" />
+            <img src="/src/assets/img/logo.svg" alt="logo" />
           </a>
-          <p className="pt-5 font-body font-light text-primary dark:text-white sm:pt-0">
-            ©2020 John Doe.
-          </p>
+          <p className="pt-5 font-body font-light text-primary dark:text-white sm:pt-0">©2020 John Doe.</p>
         </div>
         <div className="mr-auto flex items-center pt-5 sm:mr-0 sm:pt-0">
           <a href="https://github.com/ " target="_blank">
