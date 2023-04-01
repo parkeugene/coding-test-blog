@@ -8,7 +8,7 @@ const PostListItem = () => {
       </span>
 
       <Link
-        to="/post"
+        to="/detail/1"
         className="block font-body text-lg font-semibold text-primary transition-colors hover:text-green dark:text-white dark:hover:text-secondary">
         Quis hendrerit dolor magna eget est lorem ipsum dolor sit
       </Link>
