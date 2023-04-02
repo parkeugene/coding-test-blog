@@ -1,7 +1,7 @@
 import useSWR from 'swr';
 import { blogApi } from '../api/blogApi';
 
-export const useFetch = (method: string, pageIndex: number = 1, pageSize: number = 10) => {
+export const useFetch = (method: string, pageIndex: number = 1, pageSize: number = 5) => {
   const fetcher = blogApi[method];
   const { data, error, mutate } = useSWR([method, pageIndex, pageSize], fetcher);
 
