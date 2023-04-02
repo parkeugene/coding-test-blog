@@ -20,8 +20,8 @@ const PostList = () => {
 
   return (
     <div className="pt-8">
-      {blogList.map((blog: BlogPostResp) => (
-        <PostListItem key={blog.date} />
+      {blogList.map((blogItem: BlogPostResp) => (
+        <PostListItem key={blogItem.date} blogItem={blogItem} />
       ))}
     </div>
   );
