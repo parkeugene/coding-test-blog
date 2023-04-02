@@ -1,10 +1,15 @@
 import Footer from '../components/Footer';
 import Header from '../components/Header';
 import Introduction from '../components/Introduction';
+import LoadingSpinner from '../components/LoadingSpinner';
 import MyStory from '../components/MyStory';
 import PostListItem from '../components/PostListItem';
+import { useFetch } from '../hooks/useFetch';
+import { BlogPostResp } from '../types/types';
 
 export const MainPage = () => {
+  const { data: blogList, isLoading, isError } = useFetch('getBlogList');
+
   return (
     <main>
       <Header />
@@ -23,9 +28,11 @@ export const MainPage = () => {
             </a>
           </div>
 
-          {[1, 2, 3].map((idx) => (
-            <PostListItem key={idx} />
-          ))}
+          {isLoading && <LoadingSpinner />}
+          {blogList &&
+            blogList
+              .slice(0, 3)
+              .map((blogItem: BlogPostResp) => <PostListItem key={blogItem._id} blogItem={blogItem} />)}
         </div>
       </div>
       <Footer />
