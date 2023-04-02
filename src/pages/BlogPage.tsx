@@ -1,9 +1,13 @@
+import { useRecoilState } from 'recoil';
 import Footer from '../components/Footer';
 import Header from '../components/Header';
 import Pagination from '../components/Pagination';
 import PostList from '../components/PostList';
+import { pageIndexAtom } from '../atoms/atoms';
 
 const BlogPage = () => {
+  const [pageIndex, setPageIndex] = useRecoilState(pageIndexAtom);
+
   return (
     <main>
       <Header />
@@ -27,7 +31,7 @@ const BlogPage = () => {
           <PostList />
         </article>
 
-        <Pagination />
+        <Pagination totalPage={50} pageIndex={pageIndex} setPageIndex={setPageIndex} />
       </section>
       <Footer />
     </main>
