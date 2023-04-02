@@ -1,25 +1,9 @@
-import { useRecoilState } from 'recoil';
-import { pageIndexAtom } from '../atoms/atoms';
-import { useState } from 'react';
+import { usePagination } from '../hooks/usePagination';
 
-// 전체 페이지 갯수 토대로 1 ~ n 까지 페이지 번호 배열 생성
-const getTotalPagesArr = (totlaPageNum: number) => {
-  const totalPagesArr = [];
-  const totalPages = Array.from({ length: totlaPageNum }, (_, idx: number) => idx + 1);
-  for (let i = 0; i < totalPages.length; i += 5) {
-    totalPagesArr.push(totalPages.slice(i, i + 5));
-  }
-  return totalPagesArr;
-};
-
-const Pagination = () => {
+const Pagination = ({ totalPage, pageIndex, setPageIndex }) => {
   // 현재 페이지 인덱스
-  const [pageIndex, setPageIndex] = useRecoilState(pageIndexAtom);
 
-  // 현재 페이지 버튼 그룹
-  const [currPagesIndex, setCurrPagesIndex] = useState(0);
-  const totalPagesGroup = getTotalPagesArr(50);
-  const currPagesGroup = totalPagesGroup[currPagesIndex];
+  const { currPagesIndex, currPagesGroup, setCurrPagesIndex, totalPagesGroup } = usePagination(totalPage);
 
   return (
     <div className="flex pt-8 lg:pt-16">
