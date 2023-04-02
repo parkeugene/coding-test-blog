@@ -1,4 +1,4 @@
-const Comment = () => {
+const CommentItem = () => {
   return (
     <div className="text-sm border border-grey-lighter">
       <div className="bg-grey-lightest px-3 py-2 font-bold">
@@ -9,4 +9,4 @@ const Comment = () => {
   );
 };
 
-export default Comment;
+export default CommentItem;

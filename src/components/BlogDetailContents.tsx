@@ -1,9 +1,9 @@
 import { useGetMinReadTime } from '../hooks/useGetMinReadTime';
-import { BlogPostResp, CommentResp } from '../types/types';
-import Comment from './Comment';
+import { BlogPostResp } from '../types/types';
 import Share from './Share';
 import Dompurify from 'dompurify';
 import Tags from './Tags';
+import CommentList from './CommentList';
 
 type BlogDetailContentsProp = {
   blogDetail: BlogPostResp;
@@ -11,6 +11,7 @@ type BlogDetailContentsProp = {
 
 const BlogDetailContents = ({ blogDetail }: BlogDetailContentsProp) => {
   const { body, title, comments, date, tags } = blogDetail;
+
   return (
     <>
       {/* tags and title */}
@@ -39,14 +40,7 @@ const BlogDetailContents = ({ blogDetail }: BlogDetailContentsProp) => {
 
       <Share />
 
-      {/* comments */}
-      {/* TODO: comments 페이지네이션 */}
-      <article className="py-10 border-b border-grey-lighter space-y-6 ">
-        <h2 className="text-xl font-bold text-green">Comments</h2>
-        {comments.map((comment: CommentResp) => (
-          <Comment key={comment.email} />
-        ))}
-      </article>
+      <CommentList comments={comments} />
     </>
   );
 };
