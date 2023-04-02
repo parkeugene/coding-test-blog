@@ -1,5 +1,5 @@
-import {RecoilRoot} from 'recoil';
-import Router from './router/router';
+import { RecoilRoot } from 'recoil';
+import Router from './router/Router';
 
 const App = () => {
   return (
