@@ -9,7 +9,7 @@ const proxy = isProduction
       '/api': {
         target: 'https://us-west-2.aws.data.mongodb-api.com',
         changeOrigin: true,
-        secure: false,
+        secure: true,
         rewrite: (path) => path.replace(/^\/api/, ''),
       },
     };
