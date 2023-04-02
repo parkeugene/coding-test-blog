@@ -8,7 +8,7 @@ import { useFetch } from '../hooks/useFetch';
 import { BlogPostResp } from '../types/types';
 
 export const MainPage = () => {
-  const { data: blogList, isLoading, isError } = useFetch('getBlogList');
+  const { data: blogList, isLoading, isError } = useFetch('getBlogList', 1, 3);
 
   return (
     <main>
@@ -30,9 +30,7 @@ export const MainPage = () => {
 
           {isLoading && <LoadingSpinner />}
           {blogList &&
-            blogList
-              .slice(0, 3)
-              .map((blogItem: BlogPostResp) => <PostListItem key={blogItem._id} blogItem={blogItem} />)}
+            blogList.map((blogItem: BlogPostResp) => <PostListItem key={blogItem._id} blogItem={blogItem} />)}
         </div>
       </div>
       <Footer />
