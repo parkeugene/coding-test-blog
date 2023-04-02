@@ -8,7 +8,7 @@ import { pageIndexAtom } from '../atoms/atoms';
 const PostList = () => {
   const pageIndex = useRecoilValue(pageIndexAtom);
 
-  const { data: blogList, isLoading, isError } = useFetch({ method: 'getBlogList', pageIndex });
+  const { data: blogList, isLoading, isError } = useFetch<BlogPostResp[]>({ method: 'getBlogList', pageIndex });
 
   if (isLoading) {
     return (
@@ -24,7 +24,7 @@ const PostList = () => {
 
   return (
     <div className="pt-8">
-      {blogList.map((blogItem: BlogPostResp) => (
+      {blogList.map((blogItem) => (
         <PostListItem key={blogItem.date} blogItem={blogItem} />
       ))}
     </div>
