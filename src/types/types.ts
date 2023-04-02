@@ -18,3 +18,10 @@ export interface BlogPostResp {
 export interface BlogListResp {
   documents: BlogListResp[];
 }
+
+export interface ApiRequestInfoType {
+  method: string;
+  pageIndex?: number;
+  pageSize?: number;
+  id?: string;
+}

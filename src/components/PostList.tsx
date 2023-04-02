@@ -8,7 +8,7 @@ import { pageIndexAtom } from '../atoms/atoms';
 const PostList = () => {
   const pageIndex = useRecoilValue(pageIndexAtom);
 
-  const { data: blogList, isLoading, isError } = useFetch('getBlogList', pageIndex);
+  const { data: blogList, isLoading, isError } = useFetch({ method: 'getBlogList', pageIndex });
 
   if (isLoading) {
     return (
