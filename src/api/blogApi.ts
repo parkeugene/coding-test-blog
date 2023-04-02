@@ -3,9 +3,9 @@ import { BlogListResp, BlogPostResp } from '../types/types';
 
 export const blogApi = {
   async getBlogList(pageInfo: [string, number, number]) {
-    const [method, pageNumber, pageSize] = pageInfo;
+    const [method, pageIndex, pageSize] = pageInfo;
 
-    const skip = (pageNumber - 1) * pageSize;
+    const skip = (pageIndex - 1) * pageSize;
     const limit = pageSize;
 
     const payload = JSON.stringify({
