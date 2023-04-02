@@ -3,8 +3,16 @@ import Header from '../components/Header';
 import Share from '../components/Share';
 import Tags from '../components/Tags';
 import Comment from '../components/Comment';
+import { useLocation } from 'react-router';
+import { useFetch } from '../hooks/useFetch';
 
 const DetailPage = () => {
+  const id = useLocation().pathname.split('/')[2];
+
+  const { data: blogDetail, isLoading, isError } = useFetch({ method: 'getBlogDetail', id });
+
+  console.log(blogDetail);
+
   return (
     <main>
       <Header />
@@ -23,7 +31,7 @@ const DetailPage = () => {
         </article>
 
         {/* contents */}
-        <article className="prose prose max-w-none border-b border-grey-lighter py-8 dark:prose-dark sm:py-12">
+        <article className="prose max-w-none border-b border-grey-lighter py-8 dark:prose-dark sm:py-12">
           <p>
             Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et
             dolore magna aliqua. Augue ut lectus arcu bibendum at varius vel pharetra vel. Turpis nunc eget lorem dolor
