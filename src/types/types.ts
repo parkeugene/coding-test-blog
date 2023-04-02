@@ -1,4 +1,4 @@
-interface CommentResp {
+export interface CommentResp {
   body: string;
   email: string;
   author: string;
@@ -17,4 +17,11 @@ export interface BlogPostResp {
 
 export interface BlogListResp {
   documents: BlogListResp[];
+}
+
+export interface ApiRequestInfoType {
+  method: string;
+  pageIndex?: number;
+  pageSize?: number;
+  id?: string;
 }

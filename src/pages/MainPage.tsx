@@ -8,7 +8,7 @@ import { useFetch } from '../hooks/useFetch';
 import { BlogPostResp } from '../types/types';
 
 export const MainPage = () => {
-  const { data: blogList, isLoading, isError } = useFetch('getBlogList', 1, 3);
+  const { data: blogList, isLoading, isError } = useFetch({ method: 'getBlogList', pageSize: 3 });
 
   return (
     <main>
@@ -28,7 +28,14 @@ export const MainPage = () => {
             </a>
           </div>
 
-          {isLoading && <LoadingSpinner />}
+          {isLoading && (
+            <div className="pt-8 py-10 min-h-96 flex justify-center items-center">
+              <LoadingSpinner />
+            </div>
+          )}
+
+          {isError && <div className="pt-8 py-10">블로그 데이터 로드에 실패하였습니다.</div>}
+
           {blogList &&
             blogList.map((blogItem: BlogPostResp) => <PostListItem key={blogItem._id} blogItem={blogItem} />)}
         </div>
