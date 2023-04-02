@@ -2,12 +2,18 @@ import { httpClient } from '../utils/httpClient';
 import { BlogListResp, BlogPostResp } from '../types/types';
 
 export const blogApi = {
-  async getBlogList() {
+  async getBlogList(pageInfo: [string, number, number]) {
+    const [method, pageNumber, pageSize] = pageInfo;
+
+    const skip = (pageNumber - 1) * pageSize;
+    const limit = pageSize;
+
     const payload = JSON.stringify({
       collection: 'posts',
       database: 'sample_training',
       dataSource: 'Cluster0',
-      limit: 10,
+      skip,
+      limit,
     });
 
     try {
