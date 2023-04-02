@@ -2,9 +2,13 @@ import PostListItem from './PostListItem';
 import { useFetch } from '../hooks/useFetch';
 import { BlogPostResp } from '../types/types';
 import LoadingSpinner from './LoadingSpinner';
+import { useRecoilValue } from 'recoil';
+import { pageIndexAtom } from '../atoms/atoms';
 
 const PostList = () => {
-  const { data: blogList, isLoading, isError } = useFetch('getBlogList');
+  const pageIndex = useRecoilValue(pageIndexAtom);
+
+  const { data: blogList, isLoading, isError } = useFetch('getBlogList', pageIndex);
 
   if (isLoading) {
     return (
