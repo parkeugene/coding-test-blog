@@ -1,7 +1,7 @@
 import Footer from '../components/Footer';
 import Header from '../components/Header';
 import Share from '../components/Share';
-import Tag from '../components/Tag';
+import Tags from '../components/Tags';
 import Comment from '../components/Comment';
 
 const DetailPage = () => {
@@ -11,8 +11,6 @@ const DetailPage = () => {
       <section className="container mx-auto">
         {/* tags and title */}
         <article className="pt-16 lg:pt-20 border-b border-grey-lighter pb-8 sm:pb-12">
-          <Tag />
-
           <h2 className="block font-body text-3xl font-semibold leading-tight text-primary dark:text-white sm:text-4xl md:text-5xl">
             Using Git Submodules for Private Content
           </h2>
