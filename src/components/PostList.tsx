@@ -2,13 +2,17 @@ import PostListItem from './PostListItem';
 import { useFetch } from '../hooks/useFetch';
 import { BlogPostResp } from '../types/types';
 import LoadingSpinner from './LoadingSpinner';
+import { useRecoilValue } from 'recoil';
+import { pageIndexAtom } from '../atoms/atoms';
 
 const PostList = () => {
-  const { data: blogList, isLoading, isError } = useFetch('getBlogList');
+  const pageIndex = useRecoilValue(pageIndexAtom);
+
+  const { data: blogList, isLoading, isError } = useFetch('getBlogList', pageIndex);
 
   if (isLoading) {
     return (
-      <div className="pt-8 py-10">
+      <div className="pt-8 py-10 min-h-96 flex justify-center items-center">
         <LoadingSpinner />
       </div>
     );
