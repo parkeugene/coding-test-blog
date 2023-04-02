@@ -12,7 +12,7 @@ const PostList = () => {
 
   if (isLoading) {
     return (
-      <div className="pt-8 py-10">
+      <div className="pt-8 py-10 min-h-96 flex justify-center items-center">
         <LoadingSpinner />
       </div>
     );
