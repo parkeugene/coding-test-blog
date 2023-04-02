@@ -1,20 +1,9 @@
-import { useEffect } from 'react';
-import { blogApi } from '../api/blogApi';
 import Footer from '../components/Footer';
 import Header from '../components/Header';
 import Pagination from '../components/Pagination';
 import PostList from '../components/PostList';
 
 const BlogPage = () => {
-  const getdata = async () => {
-    const data = await blogApi.getBlogList();
-    console.log(data);
-  };
-
-  useEffect(() => {
-    getdata();
-  }, []);
-
   return (
     <main>
       <Header />

@@ -9,6 +9,7 @@ export interface BlogPostResp {
   body: string;
   permalink: string;
   author: string;
+  date: string;
   title: string;
   tags: string[];
   comments: CommentResp[];
