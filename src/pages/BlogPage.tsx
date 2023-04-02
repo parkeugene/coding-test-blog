@@ -1,9 +1,20 @@
+import { useEffect } from 'react';
+import { blogApi } from '../api/blogApi';
 import Footer from '../components/Footer';
 import Header from '../components/Header';
 import Pagination from '../components/Pagination';
 import PostList from '../components/PostList';
 
 const BlogPage = () => {
+  const getdata = async () => {
+    const data = await blogApi.getBlogList();
+    console.log(data);
+  };
+
+  useEffect(() => {
+    getdata();
+  }, []);
+
   return (
     <main>
       <Header />
@@ -19,8 +30,7 @@ const BlogPage = () => {
 
         <article className="pt-3 sm:w-3/4">
           <p className="font-body text-xl font-light text-primary dark:text-white">
-            Articles, tutorials, snippets, rants, and everything else. Subscribe
-            for updates as they happen.
+            Articles, tutorials, snippets, rants, and everything else. Subscribe for updates as they happen.
           </p>
         </article>
 
