@@ -1,4 +1,4 @@
-interface CommentResp {
+export interface CommentResp {
   body: string;
   email: string;
   author: string;
