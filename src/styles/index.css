@@ -6,6 +6,10 @@ html {
   @apply font-body antialiased;
 }
 
+body {
+  @apply dark:bg-primary;
+}
+
 .container {
   max-width: 600px;
 }
