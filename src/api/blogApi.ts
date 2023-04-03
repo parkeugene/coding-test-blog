@@ -1,7 +1,11 @@
 import { httpClient } from '../utils/httpClient';
 import { ApiRequestInfoType } from '../types/types';
 
+const isProduction = import.meta.env.MODE === 'production';
+
 export const blogApi = {
+  url: isProduction ? '/app/data-lhvnl/endpoint/data/v1/action' : '/api/app/data-lhvnl/endpoint/data/v1/action',
+
   async getBlogList(apiRequestInfo: ApiRequestInfoType) {
     const { pageIndex, pageSize } = apiRequestInfo;
 
@@ -17,8 +21,7 @@ export const blogApi = {
     });
 
     try {
-      const response = await httpClient.post('/api/app/data-lhvnl/endpoint/data/v1/action/find', payload);
-
+      const response = await httpClient.post(`${blogApi.url}/find`, payload);
       return response.data.documents;
     } catch (error) {
       console.error(error);
@@ -37,7 +40,7 @@ export const blogApi = {
     });
 
     try {
-      const response = await httpClient.post('/api/app/data-lhvnl/endpoint/data/v1/action/findOne', payload);
+      const response = await httpClient.post(`${blogApi.url}/findOne`, payload);
 
       return response.data.document;
     } catch (error) {
