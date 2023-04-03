@@ -5,6 +5,7 @@ import { useFetch } from '../hooks/useFetch';
 import LoadingSpinner from '../components/LoadingSpinner';
 import { BlogPostResp } from '../types/types';
 import BlogDetailContents from '../components/BlogDetailContents';
+import AutoScrollButton from '../components/AutoScrollButton';
 
 const DetailPage = () => {
   const id = useLocation().pathname.split('/')[2];
@@ -14,6 +15,7 @@ const DetailPage = () => {
   return (
     <main>
       <Header />
+      <AutoScrollButton />
       <section className="container mx-auto">
         {isLoading && (
           <div className="pt-8 py-10 min-h-[800px] flex justify-center items-center">
