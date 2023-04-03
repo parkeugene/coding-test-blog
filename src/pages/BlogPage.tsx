@@ -14,7 +14,7 @@ const BlogPage = () => {
 
       <section className="container py-16 lg:py-20">
         <article>
-          <img src="/src/assets/img/icon-blog.png" alt="icon envelope" />
+          <img src="/assets/img/icon-blog.png" alt="icon envelope" />
         </article>
 
         <h1 className="pt-5 font-body text-4xl font-semibold text-primary dark:text-white md:text-5xl lg:text-6xl">
