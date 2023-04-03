@@ -15,6 +15,9 @@
     # 패키지 설치
     npm install
 
+    # .env 에 제공된 api 키 등록
+    VITE_API_KEY = <api-key>
+
     # 로컬 서버 실행
     npm run dev
 ```
