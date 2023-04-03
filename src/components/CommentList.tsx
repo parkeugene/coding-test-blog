@@ -41,7 +41,7 @@ const CommentList = ({ comments }: CommentListProp) => {
 
   return (
     <article className="py-10 border-b border-grey-lighter space-y-6 ">
-      <h2 className="text-xl font-bold text-green">Comments</h2>
+      <h2 className="text-xl font-bold text-green dark:text-white">Comments</h2>
 
       {paginationArray[pageIndex - 1] && !loading ? (
         paginationArray[pageIndex - 1].map((comment: CommentResp) => <CommentItem key={comment.email} />)
