@@ -1,10 +1,8 @@
 import { httpClient } from '../utils/httpClient';
 import { ApiRequestInfoType } from '../types/types';
 
-const isProduction = import.meta.env.MODE === 'production';
-
 export const blogApi = {
-  url: isProduction ? '/app/data-lhvnl/endpoint/data/v1/action' : '/api/app/data-lhvnl/endpoint/data/v1/action',
+  url: '/api/app/data-lhvnl/endpoint/data/v1/action',
 
   async getBlogList(apiRequestInfo: ApiRequestInfoType) {
     const { pageIndex, pageSize } = apiRequestInfo;
