@@ -1,8 +1,8 @@
 {
   "rewrites": [
     {
-      "source": "/api",
-      "destination": "https://us-west-2.aws.data.mongodb-api.com"
+      "source": "/api/:path*",
+      "destination": "https://us-west-2.aws.data.mongodb-api.com/:path*"
     },
     {
       "source": "/(.*)",
